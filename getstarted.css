@@ -1,0 +1,205 @@
+/* Root Variables */
+:root {
+    --background-color: #1b1f23;
+    --text-color: #fff;
+    --border-color: #6e40c9;
+    --constant-gradient: linear-gradient(135deg, #1c1f23, #3a3d43);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --transition-speed: 0.3s;
+}
+
+body {
+    background: var(--constant-gradient);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Navbar */
+.navbar {
+    background-color: transparent;
+    transition: background-color var(--transition-speed);
+}
+
+.navbar-toggler {
+    border: 1px solid #fff;
+    transition: border-color var(--transition-speed);
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-color: transparent;
+    transition: background-color var(--transition-speed);
+}
+
+.navbar-brand, .navbar a, .footer a, .card {
+    color: var(--text-color);
+    transition: color var(--transition-speed);
+}
+
+.navbar a:hover {
+    color: var(--text-color);
+    animation: colorPulse 1s ease-in-out infinite alternate;
+}
+
+/* Hover color pulse animation for links */
+@keyframes colorPulse {
+    0% {
+        color: var(--text-color);
+    }
+    100% {
+        color: var(--border-color);
+    }
+}
+
+.main-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header animation */
+h2 {
+    color: var(--text-color);
+    text-align: center;
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+}
+
+/* Fade-in effect for header */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Reading Box with Hover Scale Effect */
+.reading-box {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0px 4px 8px var(--shadow-color);
+    transition: transform 0.3s, box-shadow var(--transition-speed);
+}
+
+/* Hover effect for scaling and adding shadow depth */
+.reading-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px var(--shadow-color);
+}
+/* File Input Styling */
+input[type="file"] {
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: border-color var(--transition-speed), background-color var(--transition-speed);
+}
+
+/* Hover effect for file input */
+input[type="file"]:hover {
+    background-color: var(--background-color);
+    border-color: var(--border-color);
+    animation: inputGlow 1.5s ease-in-out infinite alternate;
+}
+
+/* Glow effect for file input hover */
+@keyframes inputGlow {
+    0% {
+        box-shadow: 0 0 5px var(--border-color);
+    }
+    100% {
+        box-shadow: 0 0 10px var(--border-color);
+    }
+}
+
+/* Button Styling */
+button {
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+/* Hover effect for button */
+button:hover {
+    background-color: var(--border-color);
+    transform: translateY(-3px);
+    animation: buttonPulse 1.5s ease-in-out infinite alternate;
+}
+
+/* Pulse effect for button */
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    animation: fadeUp 2s ease-out forwards;
+    opacity: 0;
+}
+
+/* Fade up effect for footer */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Light Mode Styles */
+.light-mode {
+    --background-color: #fff;
+    --text-color: #000;
+    --border-color: #000;
+    --constant-gradient: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .btn-outline-light {
+    border-color: #000;
+    color: #000;
+    transition: border-color var(--transition-speed), color var(--transition-speed);
+}
+
+.light-mode .navbar-toggler {
+    border: 1px solid #000;
+    transition: border-color var(--transition-speed);
+}
+
+.light-mode .navbar-toggler .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+body.light-mode .navbar-toggler {
+    border-color: #000; /* Dark border for the toggler in light mode */
+}
+
+body.light-mode .navbar-toggler span{
+    color: #000; /* Dark toggler icon in light mode */
+}
+
+/* Dark Mode */
+body:not(.light-mode) .navbar-toggler {
+    border-color: #fff;
+}
+
+body:not(.light-mode) .navbar-toggler span{ 
+    color: #fff;
+}   

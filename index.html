@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas & Temperature Monitoring</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="bg-dark text-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">GasMonitor</a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="light-mode-toggle" class="btn ms-3">
+                            <i id="mode-icon" class="bi bi-sun"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <h1 class="display-4 animate__animated animate__fadeInUp">Monitor Gas Leaks and Temperature in Real-time</h1>
+            <p class="lead animate__animated animate__fadeInUp">Stay informed about flammable gas levels and temperature variations with our easy-to-use monitoring system.</p>
+            <a href="getstarted.html" class="btn mt-4 animate__animated animate__fadeInUp">Get Started</a>
+            <div class="scroll-icon d-flex justify-content-center">
+                <i class="bi bi-arrow-down-circle"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section py-5">
+        <div class="text-center">
+            <h2 class="display-4 animate__animated animate__zoomIn">Key Features</h2>
+            <div class="row mt-5 card-container">
+                <div class="col-lg-5 col-md-6 col-sm-12 animate__animated animate__fadeInLeft card">
+                    <i class="bi bi-house-door display-4 mb-3"></i>
+                    <h4 class="h5">Real-Time Monitoring</h4>
+                    <p>Track temperature and gas levels instantly from anywhere.</p>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12 animate__animated animate__fadeInUp card">
+                    <i class="bi bi-geo-alt display-4 mb-3"></i>
+                    <h4 class="h5">Leak Alerts</h4>
+                    <p>Receive alerts for any potential gas leaks before they become hazardous.</p>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12 animate__animated animate__fadeInRight card">
+                    <i class="bi bi-plug display-4 mb-3"></i>
+                    <h4 class="h5">Easy to Integrate</h4>
+                    <p>Works seamlessly with NodeMCU and other IoT devices.</p>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12 animate__animated animate__fadeInLeft card">
+                    <i class="bi bi-exclamation-circle display-4 mb-3"></i>
+                    <h4 class="h5">Flammable Gas Detection</h4>
+                    <p>Instantly detect dangerous levels of flammable gases and alert the users in real-time.</p>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12 animate__animated animate__fadeInUp card">
+                    <i class="bi bi-graph-up display-4 mb-3"></i>
+                    <h4 class="h5">Real-Time Graph Analysis</h4>
+                    <p>View live graphs that show the current temperature and gas levels, allowing you to monitor any changes.</p>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12 animate__animated animate__fadeInRight card">
+                    <i class="bi bi-map display-4 mb-3"></i>
+                    <h4 class="h5">Blueprint & Escape Routes</h4>
+                    <p>Analyze the building's blueprint and provide the shortest and safest route to escape during emergencies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 GasMonitor. All rights reserved.</p>
+            <a href="#" class="">Privacy</a> | <a href="#" class="">Terms</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
