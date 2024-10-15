@@ -10,50 +10,40 @@
     <script>
         // Function to fetch and display data from ThingSpeak
         function fetchData() {
-            const channelID = '2695988'; // Replace with your ThingSpeak Channel ID
-            const readAPIKey = 'GBWRUU12A8FQ1ILT'; // Replace with your ThingSpeak Read API Key
+            const channelID = '2618136'; // Replace with your ThingSpeak Channel ID
+            const readAPIKey = 'L01MY7ZAAH36QMYI'; // Replace with your ThingSpeak Read API Key
             const baseURL = `https://api.thingspeak.com/channels/${channelID}/fields`;
 
-            const fireURL = `${baseURL}/1.json?api_key=${readAPIKey}&results=1`;
-            const toxicGasURL = `${baseURL}/2.json?api_key=${readAPIKey}&results=1`;
-            const flammableGasURL = `${baseURL}/3.json?api_key=${readAPIKey}&results=1`;
-            const smokeDustURL = `${baseURL}/4.json?api_key=${readAPIKey}&results=1`;
+            const tempURL = `${baseURL}/1.json?api_key=${readAPIKey}&results=1`;
+            const lpgURL = `${baseURL}/2.json?api_key=${readAPIKey}&results=1`;
+            const toxicGasURL = `${baseURL}/3.json?api_key=${readAPIKey}&results=1`;
 
             // Fetch Fire data
-            fetch(fireURL)
+            fetch(tempURL)
                 .then(response => response.json())
                 .then(data => {
                     const fireValue = parseFloat(data.feeds[0].field1) || 'No Data';
-                    updateDisplay('fire', fireValue, '°C');
+                    updateDisplay('Temperature', fireValue, '°C');
                 })
                 .catch(error => console.error('Error fetching fire data:', error));
 
             // Fetch Toxic Gas data
-            fetch(toxicGasURL)
+            fetch(lpgURL)
                 .then(response => response.json())
                 .then(data => {
                     const toxicGasValue = parseFloat(data.feeds[0].field2) || 'No Data';
-                    updateDisplay('toxic-gas', toxicGasValue, '%');
+                    updateDisplay('LPG, Methane', toxicGasValue, '%');
                 })
                 .catch(error => console.error('Error fetching toxic gas data:', error));
 
             // Fetch Flammable Gas data
-            fetch(flammableGasURL)
+            fetch(toxicGasURL)
                 .then(response => response.json())
                 .then(data => {
                     const flammableGasValue = parseFloat(data.feeds[0].field3) || 'No Data';
-                    updateDisplay('flammable-gas', flammableGasValue, '%');
+                    updateDisplay('Toxic Gases', flammableGasValue, '%');
                 })
                 .catch(error => console.error('Error fetching flammable gas data:', error));
-
-            // Fetch Smoke or Dust data
-            fetch(smokeDustURL)
-                .then(response => response.json())
-                .then(data => {
-                    const smokeDustValue = parseFloat(data.feeds[0].field4) || 'No Data';
-                    updateDisplay('smoke-dust', smokeDustValue, '%');
-                })
-                .catch(error => console.error('Error fetching smoke/dust data:', error));
         }
 
         // Function to update the display and set color based on the value
@@ -143,20 +133,16 @@
                 <div class="col-lg-6 col-md-12 p-4 d-flex flex-column align-items-center justify-content-center">
                     <h2 class="display-6 mb-4">Current Readings</h2>
                     <div class="reading-box mb-3 p-3 rounded text-center">
-                        <h3>Fire</h3>
+                        <h3>Temperature</h3>
                         <p id="fire" class="fs-1">Loading...</p>
                     </div>
                     <div class="reading-box mb-3 p-3 rounded text-center">
-                        <h3>Toxic Gas</h3>
+                        <h3>LPG, Methane</h3>
                         <p id="toxic-gas" class="fs-1">Loading...</p>
                     </div>
                     <div class="reading-box mb-3 p-3 rounded text-center">
-                        <h3>Flammable Gas</h3>
+                        <h3>Toxic Gases</h3>
                         <p id="flammable-gas" class="fs-1">Loading...</p>
-                    </div>
-                    <div class="reading-box p-3 rounded text-center">
-                        <h3>Smoke or Dust</h3>
-                        <p id="smoke-dust" class="fs-1">Loading...</p>
                     </div>
                 </div>
             </div>
